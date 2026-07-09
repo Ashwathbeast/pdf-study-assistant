@@ -1,0 +1,5 @@
+.env
+venv/
+*.pdf
+test_api.py
+read_pdf.py
