@@ -16,9 +16,9 @@ if st.button("Get Answer"):
         st.error("Please type a question")
     else:
         reader = PdfReader(uploaded_file)
-        if len(reader.pages) > 50:
-            st.warning("Large PDF detected. Reading first 50 pages only.")
-            pages_to_read = reader.pages[:50]
+        if len(reader.pages) > 1000:
+            st.warning("Large PDF detected. Reading first 1000 pages only.")
+            pages_to_read = reader.pages[:1000]
         else:
             pages_to_read = reader.pages
         pdf_text = ""
