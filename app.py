@@ -37,3 +37,23 @@ if st.button("Get Answer"):
     )
     st.subheader("Answer:")
     st.write(response.text)
+if st.button("Generate Practice Questions"):
+    prompt = f"""
+    Based on this document:
+    {pdf_text}
+    
+    Generate 10 multiple choice questions to test understanding.
+    Format each question as:
+    Q1. Question here
+    a) Option 1
+    b) Option 2
+    c) Option 3
+    d) Option 4
+    Answer: correct option
+    """
+    response = client.models.generate_content(
+        model="gemini-2.5-flash",
+        contents=prompt
+    )
+    st.subheader("Practice Questions:")
+    st.write(response.text)
